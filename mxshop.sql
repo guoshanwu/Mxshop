@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 01/03/2020 17:04:52
+ Date: 17/04/2020 00:36:54
 */
 
 SET NAMES utf8mb4;
@@ -157,6 +157,18 @@ INSERT INTO `auth_permission` VALUES (95, 'Can delete log entry', 24, 'delete_lo
 INSERT INTO `auth_permission` VALUES (96, 'Can view log entry', 24, 'view_log');
 
 -- ----------------------------
+-- Table structure for authtoken_token
+-- ----------------------------
+DROP TABLE IF EXISTS `authtoken_token`;
+CREATE TABLE `authtoken_token`  (
+  `key` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`key`) USING BTREE,
+  UNIQUE INDEX `user_id`(`user_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
 -- Table structure for django_admin_log
 -- ----------------------------
 DROP TABLE IF EXISTS `django_admin_log`;
@@ -224,7 +236,7 @@ CREATE TABLE `django_migrations`  (
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 28 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of django_migrations
@@ -255,6 +267,7 @@ INSERT INTO `django_migrations` VALUES (23, 'user_operation', '0002_auto_2020021
 INSERT INTO `django_migrations` VALUES (24, 'xadmin', '0001_initial', '2020-02-18 14:53:22.972707');
 INSERT INTO `django_migrations` VALUES (25, 'xadmin', '0002_log', '2020-02-18 14:53:23.095714');
 INSERT INTO `django_migrations` VALUES (26, 'xadmin', '0003_auto_20160715_0100', '2020-02-18 14:53:23.141717');
+INSERT INTO `django_migrations` VALUES (27, 'authtoken', '0001_initial', '2020-03-04 15:46:02.703260');
 
 -- ----------------------------
 -- Table structure for django_session
@@ -272,6 +285,7 @@ CREATE TABLE `django_session`  (
 -- Records of django_session
 -- ----------------------------
 INSERT INTO `django_session` VALUES ('h77qt6k2ykr9w6j9f03obvl74dmw46nn', 'NjY1OGU4MTRiZjc2OWZmN2Y2OTY1MDQ5ZDExMzJkZjYzOTFmZmI3MDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5YjIwN2RiODY2NDRmZmFiMGJkZTk0NDI4MWJhM2YyZDhmNzQ2ZThkIiwiTElTVF9RVUVSWSI6W1siZ29vZHMiLCJnb29kcyJdLCIiXX0=', '2020-03-06 17:32:39.544599');
+INSERT INTO `django_session` VALUES ('m1luireykb2ot1x8qc6jp9leisbrm13j', 'ZmMxOGYyZTYzZjU5N2Q3NTc3NDRmY2VhNjc4YmUyYzI2ODZmMWI5Nzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5YjIwN2RiODY2NDRmZmFiMGJkZTk0NDI4MWJhM2YyZDhmNzQ2ZThkIiwiTElTVF9RVUVSWSI6W1siZ29vZHMiLCJnb29kc2NhdGVnb3J5Il0sImFsbD0iXX0=', '2020-03-17 14:30:57.346581');
 
 -- ----------------------------
 -- Table structure for goods_banner
@@ -791,7 +805,7 @@ CREATE TABLE `users_userprofile`  (
 -- ----------------------------
 -- Records of users_userprofile
 -- ----------------------------
-INSERT INTO `users_userprofile` VALUES (1, 'pbkdf2_sha256$180000$8aK4Wpnl2SIq$Qc0densT8KOZ3gUSkyWnJNQng8/fqdd++atfQiflQho=', '2020-02-19 13:48:23.417882', 1, 'test', '', '', 1, 1, '2020-02-18 15:32:06.120584', NULL, NULL, 'female', NULL, 'test@qq.com');
+INSERT INTO `users_userprofile` VALUES (1, 'pbkdf2_sha256$180000$8aK4Wpnl2SIq$Qc0densT8KOZ3gUSkyWnJNQng8/fqdd++atfQiflQho=', '2020-03-02 15:48:58.250486', 1, 'test', '', '', 1, 1, '2020-02-18 15:32:06.120584', NULL, NULL, 'female', NULL, 'test@qq.com');
 
 -- ----------------------------
 -- Table structure for users_userprofile_groups
